@@ -1,0 +1,68 @@
+extends ../template
+
+block variables
+  - var title = 'Помощь'
+
+block content
+  section.personal.container-lk.margin-section
+    .title-lk Помощь
+    form.personal__content
+      .personal__select.personal-select(personal__select--show, personal__select--active)
+        button.personal-select__current Тема обращения
+        ul.personal-select__list
+          li.personal-select__item 
+            button Что сложившаяся структура организации позволяет
+          li.personal-select__item 
+            button Занимаемых участниками в отношении поставленных
+          li.personal-select__item 
+            button Разнообразный и богатый опыт новая
+          li.personal-select__item 
+            button Организационной деятельности представляет
+          li.personal-select__item 
+            button Другое
+      .personal__select.personal-select.personal__select--active(personal__select--show)
+        button.personal-select__current Другое
+        ul.personal-select__list
+          li.personal-select__item 
+            button Что сложившаяся структура организации позволяет
+          li.personal-select__item 
+            button Занимаемых участниками в отношении поставленных
+          li.personal-select__item 
+            button Разнообразный и богатый опыт новая
+          li.personal-select__item 
+            button Организационной деятельности представляет
+          li.personal-select__item
+            button Другое
+          li.personal-select__item
+            button Другое
+          li.personal-select__item.personal-select__item--active  
+            button Другое
+      input(type="text" placeholder="Тема обращения")
+      input(type="text" placeholder="Тема обращения")
+      input(type="text" placeholder="Сообщение")
+      .callback-form-file__wrap
+        .callback-form__file.callback-form-file
+          label.callback-form-file__label
+            input.visually-hidden(type="file" multiple)
+            span Прикрепить файл
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4.5332 19.4668L9.3332 14.6668M4.5332 9.86678L14.1332 19.4668M13.0665 4.53345L19.4665 10.9334M5.59987 10.9334L14.1332 5.60011M13.0665 18.4001L18.3999 9.86678"/>
+              </svg>
+          ul.callback-form-file__list.callback-form-file-list
+            li.callback-form-file-list__item 
+              span сказка.jpg
+              button.callback-form-file-list__delete 
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5.59961 5.6001L18.3996 18.4001M5.59961 18.4001L18.3996 5.6001"/>
+                </svg>
+            li.callback-form-file-list__item 
+              span сказки про троллей и эльфов.jpg
+              button.callback-form-file-list__delete 
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5.59961 5.6001L18.3996 18.4001M5.59961 18.4001L18.3996 5.6001"/>
+                </svg>
+        .callback-form-file__error(style="display: none") Файл не должен превышать 3 МБ
+      p Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь с 
+        a(href="#") политикой конфиденциальности
+      button.primary-btn Отправить 
+        

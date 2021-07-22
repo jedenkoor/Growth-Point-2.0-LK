@@ -1,0 +1,501 @@
+@import '~normalize.css';
+@import 'variables/mixins';
+@import 'variables/indents';
+@import 'variables/fonts';
+
+:root {
+  --theme: light;
+  --primary: #5a8ff5;
+  --secondary: #4146f5;
+  --secondary-light: rgba(65, 70, 245, 0.07);
+  --bacground-opacity: rgba(25, 25, 25, 0.35);
+  --checkbox-surface: #f3f3f3;
+  --button-arrows-surface: #f3f3f3;
+  --surface: #fafafa;
+  --surface-menu: #ffffff;
+  --card-button-surface: #f5f5f5;
+  --card-surface: #fdfdfd;
+  --error: #f33f4f;
+  --text-bright: #191919;
+  --text-washy: #404040;
+  --text-caption: #9f9f9f;
+  --text-card-caption: #bfbfbf;
+  --circle: rgba(0, 0, 0, 0.08);
+  --circle-pale: rgba(0, 0, 0, 0.05);
+  --circle-pale-pale: rgba(0, 0, 0, 0.03);
+  --circle-pale-pale-pale: rgba(0, 0, 0, 0.02);
+  --selection-color: rgba(25, 25, 25, 0.99);
+  --img-selection-color: rgba(25, 25, 25, 0.5);
+  --shadow: 0px 10px 20px rgba(3, 3, 3, 0.04);
+  --shadow-card: 1px 2px 10px rgba(255, 255, 255, 0.07);
+}
+
+.dark-theme {
+  --theme: dark;
+  --primary: #9ccbfc;
+  --secondary: #9d9cfc;
+  --secondary-light: rgba(110, 145, 253, 0.15);
+  --bacground-opacity: rgba(23, 23, 23, 0.7);
+  --checkbox-surface: #292929;
+  --button-arrows-surface: #2e2e2e;
+  --surface: #1a1a1a;
+  --surface-menu: #303030;
+  --card-button-surface: #3d3d3d;
+  --card-surface: #212121;
+  --error: #fc9ccb;
+  --text-bright: #f4f4f4;
+  --text-washy: #e0e0e0;
+  --text-caption: #8c8c8c;
+  --text-card-caption: #737373;
+  --circle: rgba(255, 255, 255, 0.08);
+  --circle-pale: rgba(255, 255, 255, 0.06);
+  --circle-pale-pale: rgba(255, 255, 255, 0.04);
+  --circle-pale-pale-pale: rgba(255, 255, 255, 0.03);
+  --selection-color: rgba(225, 225, 225, 0.99);
+  --img-selection-color: rgba(225, 225, 225, 0.5);
+  --shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+  --shadow-card: 1px 2px 10px rgba(255, 255, 255, 0.07);
+}
+
+::selection {
+  color: var(--surface);
+  background-color: var(--selection-color);
+}
+
+img::selection {
+  background-color: var(--img-selection-color);
+}
+
+img::-moz-selection {
+  background-color: var(--img-selection-color);
+}
+
+@media screen and (min-width: 1200px) {
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-button {
+    display: none;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 2px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--surface-menu);
+  }
+}
+
+html.fixed {
+  overflow: hidden;
+}
+
+html.compensate-for-scrollbar {
+  margin-right: 4px;
+  @-moz-document url-prefix() {
+    margin-right: 17px;
+  }
+}
+
+html {
+  background-color: var(--surface);
+  transition: background-color 0.2s;
+}
+
+body {
+  font-family: 'Commissioner', sans-serif;
+  color: var(--text-bright);
+  font-size: 18px;
+  line-height: 24px;
+  text-rendering: optimizeLegibility;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-font-smoothing: antialiased;
+  transition: color 0.2s;
+  @include w1023 {
+    font-size: 16px;
+    line-height: 21px;
+  }
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.content {
+  position: relative;
+  z-index: 0;
+  flex: 1;
+  counter-reset: casepart;
+}
+
+.container {
+  width: 100%;
+  max-width: 1356px;
+  margin: 0 auto;
+  padding: $padding-container;
+  @media screen and (max-width: 1480px) {
+    padding: 0 90px 0 18px;
+  }
+  @include w1023 {
+    padding: $mobile-padding-container;
+  }
+}
+
+.container-lk {
+  width: 100%;
+  max-width: 1322px;
+  margin: 0 auto;
+  @media screen and (max-width: 2194px) {
+    max-width: none;
+    padding: 0 121px 0 436px;
+  }
+  @include w1440 {
+    padding: 0 90px 0 405px;
+  }
+  @include w1200 {
+    padding: 0 86px 0 18px;
+  }
+  @include w1023 {
+    padding: $padding-container;
+  }
+  @include w767 {
+    padding: $mobile-padding-container;
+  }
+}
+
+.margin-section {
+  margin-bottom: $margin-section;
+  @include w1023 {
+    margin-bottom: $tablet-margin-section;
+  }
+  @include w767 {
+    margin-bottom: $mobile-margin-section;
+  }
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: none;
+}
+
+ul,
+ol {
+  margin: 0;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 24px;
+  @include w1023 {
+    margin-bottom: 21px;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+b {
+  font-weight: bold;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+textarea,
+button,
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0 0 0 0);
+}
+
+.title {
+  font-family: 'Noir Pro';
+  margin-top: 0;
+  margin-bottom: 51px;
+  font-weight: 600;
+  font-size: 61px;
+  line-height: 83px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  @include w1023 {
+    margin-bottom: 40px;
+    font-size: 42px;
+    line-height: 57px;
+  }
+  @include w767 {
+    margin-bottom: 43px;
+    font-size: 35px;
+    line-height: 47px;
+    letter-spacing: 0.01em;
+  }
+}
+
+.title-lk {
+  margin-top: 0;
+  margin-bottom: 51px;
+  font-family: 'Noir Pro';
+  font-weight: 600;
+  font-size: 50px;
+  line-height: 68px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  @include w1440 {
+    margin-bottom: 40px;
+    font-size: 42px;
+    line-height: 57px;
+  }
+  @include w767 {
+    margin-bottom: 43px;
+    font-size: 35px;
+    line-height: 47px;
+    letter-spacing: 0.01em;
+  }
+  @include w359 {
+    font-size: 30px;
+    line-height: 40px;
+  }
+}
+
+.smalltitle-lk {
+  margin-top: 0;
+  margin-bottom: 51px;
+  font-family: 'Noir Pro';
+  font-weight: 600;
+  font-size: 35px;
+  line-height: 47px;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  @include w1440 {
+    margin-bottom: 40px;
+    font-size: 28px;
+    line-height: 39px;
+  }
+  @include w767 {
+    margin-bottom: 43px;
+    font-size: 24px;
+    line-height: 32px;
+  }
+}
+
+input {
+  display: block;
+  width: 100%;
+  height: 44px;
+  padding: 0;
+  background-color: var(--surface);
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid var(--circle);
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  color: var(--text-bright);
+  transition: 0.2s;
+  @include w1023 {
+    height: 40px;
+    font-size: 16px;
+    line-height: 21px;
+  }
+  &:not([disabled]):hover,
+  &:not([disabled]):focus {
+    border-color: var(--primary);
+  }
+  &::placeholder {
+    color: var(--text-caption);
+  }
+  &.input-err {
+    border-color: var(--error);
+  }
+  &.input-border {
+    border-color: var(--primary);
+  }
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    box-shadow: 0 0 0px 1000px var(--surface) inset;
+    -webkit-box-shadow: 0 0 0px 1000px var(--surface) inset;
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: var(--text-bright);
+  }
+}
+
+.swiper {
+  &-button {
+    &-prev,
+    &-next {
+      width: 30px;
+      height: 30px;
+      padding: 3px;
+      border-radius: 50%;
+      background-color: var(--button-arrows-surface);
+      transition: background-color 0.2s;
+      @include hover {
+        &:hover,
+        &:focus {
+          background-color: var(--secondary);
+          path {
+            stroke: var(--surface);
+          }
+        }
+      }
+      @include active {
+        &:active {
+          background-color: var(--secondary);
+          path {
+            stroke: var(--surface);
+          }
+        }
+      }
+      &:after {
+        display: none;
+      }
+      path {
+        stroke: var(--text-bright);
+        transition: stroke 0.2s;
+      }
+    }
+  }
+}
+
+.primary-btn {
+  display: inline-block;
+  border: 1px solid transparent;
+  border-radius: 0;
+  text-align: center;
+  font-family: 'Noir Pro';
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  background: var(--text-bright);
+  color: var(--surface);
+  transition: 0.2s;
+  @include w1023 {
+    font-size: 16px;
+    line-height: 23px;
+  }
+  @include hover {
+    &:hover,
+    &:focus {
+      background-color: var(--primary);
+    }
+    &:active {
+      transform: translate3d(0, 2px, 0) scale(0.95);
+    }
+  }
+  @include active {
+    &:active {
+      background-color: var(--primary);
+      transform: translate3d(0, 2px, 0) scale(0.95);
+    }
+  }
+}
+
+.secondary-btn {
+  display: inline-block;
+  border: 1px solid var(--text-bright);
+  border-radius: 0;
+  text-align: center;
+  font-family: 'Noir Pro';
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  background: none;
+  color: var(--text-bright);
+  transition: 0.2s;
+  @include w1023 {
+    font-size: 16px;
+    line-height: 23px;
+  }
+  @include hover {
+    &:hover,
+    &:focus {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    &:active {
+      transform: translate3d(0, 2px, 0) scale(0.95);
+    }
+  }
+  @include active {
+    &:active {
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translate3d(0, 2px, 0) scale(0.95);
+    }
+  }
+}
+
+.tertiary-btn {
+  display: inline-block;
+  background-color: var(--checkbox-surface);
+  border-radius: 30px;
+  transition: 0.2s;
+  cursor: pointer;
+  @include hover {
+    &:hover {
+      background-color: var(--text-bright);
+      color: var(--surface);
+    }
+  }
+  @include active {
+    &:active {
+      background-color: var(--text-bright);
+      color: var(--surface);
+    }
+  }
+}
+
+@import 'blocks/common/header';
+@import 'blocks/common/footer';
+@import 'blocks/common/callback';
+@import 'blocks/common/popup';
+@import 'blocks/mainpage/banner';
+@import 'blocks/mainpage/projects';
+@import 'blocks/mainpage/services';
+@import 'blocks/mainpage/why';
+@import 'blocks/otherpages/projectspage';
+@import 'blocks/otherpages/case';
+@import 'blocks/otherpages/contacts';
+@import 'blocks/otherpages/requisites';
+@import 'blocks/otherpages/about';
+@import 'blocks/otherpages/text';
+@import 'blocks/otherpages/404';
+@import 'blocks/otherpages/lk';

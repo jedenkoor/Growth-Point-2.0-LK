@@ -1,0 +1,70 @@
+.notfound {
+  height: calc(100vh - 184px);
+  min-height: 591px;
+  @include w1023 {
+    min-height: 556px;
+  }
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    padding-top: 2.1vh;
+    @include w767 {
+      padding-top: 2.8vh;
+    }
+  }
+  &__title {
+    margin-top: 0;
+    margin-bottom: 51px;
+    font-family: 'Noir Pro';
+    font-weight: 600;
+    font-size: 225px;
+    line-height: 270px;
+    letter-spacing: 0.02em;
+    @include w1023 {
+      margin-bottom: 40px;
+      font-size: 150px;
+      line-height: 180px;
+    }
+    @include w767 {
+      margin-bottom: 43px;
+      font-size: 116px;
+      line-height: 139px;
+    }
+  }
+  &__text {
+    margin-bottom: 51px;
+    text-align: center;
+    @include w1023 {
+      margin-bottom: 40px;
+    }
+  }
+  &__btns {
+    display: flex;
+    @include w767 {
+      flex-direction: column;
+      width: 100%;
+    }
+  }
+  &__btn {
+    padding: 13px 24px;
+    @include w1023 {
+      padding: 13px 41px;
+    }
+    @include w767 {
+      width: 100%;
+      padding: 12px 0;
+    }
+    &:not(:last-child) {
+      margin-right: 20px;
+      @include w1023 {
+        margin-right: 14px;
+      }
+      @include w767 {
+        margin-right: 0;
+        margin-bottom: 14px;
+      }
+    }
+  }
+}

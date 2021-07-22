@@ -1,0 +1,67 @@
+extends ../template
+
+block variables
+  - var title = 'Проекты'
+
+block content
+  section.projects-lk.container-lk.margin-section
+    .title-lk Проекты
+    .projects-lk__top 
+      ul.projects-lk__tabs.projects-lk-tabs
+        li.projects-lk-tabs__item 
+          label.callback-form-services__label
+            input.visually-hidden(type="radio" name="projects" checked)
+            span.tertiary-btn Активные
+        li.projects-lk-tabs__item 
+          label.callback-form-services__label
+            input.visually-hidden(type="radio" name="projects")
+            span.tertiary-btn Завершенные
+        li.projects-lk-tabs__item 
+          label.callback-form-services__label
+            input.visually-hidden(type="radio" name="projects")
+            span.tertiary-btn Все проекты
+      button.projects-lk__new Создать новый проект
+        <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18.7982 12.0001L14.5315 7.7334M18.7982 12.0001L14.5315 16.2667M18.7982 12.0001H5.46484" stroke="var(--secondary)"/>
+        </svg>
+    ul.projects-lk__list 
+      li.projects-lk__item.projects-lk-item
+        a.projects-lk-item__link(href="#") 
+          .projects-lk-item__btn 
+            <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19.1302 11.9999L14.8635 7.73327M19.1302 11.9999L14.8635 16.2666M19.1302 11.9999L5.79687 11.9999" stroke="var(--text-bright)"/>
+            </svg>
+          h3.projects-lk-item__title Интернет-магазин levitacia.co
+          .projects-lk-item__row 
+            span Ответственный
+            span Нияз
+          .projects-lk-item__row 
+            span E-mail
+            span blabla@gmail.com
+      li.projects-lk__item.projects-lk-item
+        a.projects-lk-item__link(href="#") 
+          .projects-lk-item__btn 
+            <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19.1302 11.9999L14.8635 7.73327M19.1302 11.9999L14.8635 16.2666M19.1302 11.9999L5.79687 11.9999" stroke="var(--text-bright)"/>
+            </svg>
+          h3.projects-lk-item__title Информирование граждан
+          .projects-lk-item__row 
+            span Ответственный
+            span Нияз
+          .projects-lk-item__row 
+            span E-mail
+            span blabla@gmail.com
+      li.projects-lk__item.projects-lk-item
+        a.projects-lk-item__link(href="#") 
+          .projects-lk-item__btn 
+            <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19.1302 11.9999L14.8635 7.73327M19.1302 11.9999L14.8635 16.2666M19.1302 11.9999L5.79687 11.9999" stroke="var(--text-bright)"/>
+            </svg>
+          h3.projects-lk-item__title постоянная Поддержка сайта
+          .projects-lk-item__row 
+            span Ответственный
+            span Нияз
+          .projects-lk-item__row 
+            span E-mail
+            span blabla@gmail.com
+        

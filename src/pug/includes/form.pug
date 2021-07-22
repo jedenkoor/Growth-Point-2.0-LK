@@ -1,0 +1,56 @@
+form.callback__col.callback-form
+  h3.callback-form__subtitle Выберите услугу
+  ul.callback-form__services.callback-form-services
+    li.callback-form-services__item 
+      label.callback-form-services__label
+        input.visually-hidden(type="checkbox")
+        span.tertiary-btn Создание дизайна
+    li.callback-form-services__item 
+      label.callback-form-services__label
+        input.visually-hidden(type="checkbox")
+        span.tertiary-btn Обслуживание
+    li.callback-form-services__item 
+      label.callback-form-services__label
+        input.visually-hidden(type="checkbox")
+        span.tertiary-btn Start-Up поддержка
+    li.callback-form-services__item 
+      label.callback-form-services__label
+        input.visually-hidden(type="checkbox")
+        span.tertiary-btn Консультация
+    li.callback-form-services__item 
+      label.callback-form-services__label
+        input.visually-hidden(type="checkbox")
+        span.tertiary-btn Разработка
+    li.callback-form-services__item 
+      label.callback-form-services__label
+        input.visually-hidden(type="checkbox")
+        span.tertiary-btn Комплексное решение
+  input.callback-form__input(type="text" placeholder="Расскажите о проекте")
+  input.callback-form__input(type="text" placeholder="Ваше имя*")
+  input.callback-form__input(type="tel" placeholder="Ваш телефон*")
+  input.callback-form__input(type="email" placeholder="Ваш E-mail*")
+  .callback-form-file__wrap
+    .callback-form__file.callback-form-file
+      label.callback-form-file__label
+        input.visually-hidden(type="file" multiple)
+        span Прикрепить файл
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4.5332 19.4668L9.3332 14.6668M4.5332 9.86678L14.1332 19.4668M13.0665 4.53345L19.4665 10.9334M5.59987 10.9334L14.1332 5.60011M13.0665 18.4001L18.3999 9.86678"/>
+          </svg>
+      ul.callback-form-file__list.callback-form-file-list
+        li.callback-form-file-list__item 
+          span сказка.jpg
+          button.callback-form-file-list__delete 
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5.59961 5.6001L18.3996 18.4001M5.59961 18.4001L18.3996 5.6001"/>
+            </svg>
+        li.callback-form-file-list__item 
+          span сказки про троллей и эльфов.jpg
+          button.callback-form-file-list__delete 
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5.59961 5.6001L18.3996 18.4001M5.59961 18.4001L18.3996 5.6001"/>
+            </svg>
+    .callback-form-file__error(style="display: none") Файл не должен превышать 3 МБ
+  p.callback-form__privacy Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь с 
+    a(href="#") политикой конфиденциальности
+  button.primary-btn.callback-form__send(type="submit") Отправить

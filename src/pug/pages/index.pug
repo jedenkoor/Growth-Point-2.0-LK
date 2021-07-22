@@ -1,0 +1,71 @@
+extends ../template
+
+block variables
+  - var title = 'Карта сайта'
+  - var breadcrumbs = 0
+
+block content
+  style.
+    .map__container{
+      margin-top: 50px;
+    }
+    .h1title{
+      margin-bottom: 50px
+    }
+    table{
+      width: 100%;
+      border-collapse: collapse;
+    }
+    td{
+      width: 50%;
+      border: 1px solid var(--text-bright);
+      transition: background-color .1s
+    }
+    td a{
+      display: block;
+      padding: 20px;
+    }
+    td a:hover,
+    td a:focus{
+      background-color: var(--circle-pale);
+    }
+    @media screen and (max-width: 767px) {
+      .map__container{
+        margin-top: 24px;
+      }
+      tr,
+      td {
+        display: block
+      }
+      tr:not(:last-child) td{
+        border-bottom: none
+      }
+      td{
+        width: 100%
+      }
+      td a{
+        padding: 10px;
+        font-size: 16px;
+      }
+    }
+  .container-lk.map__container.margin-section
+    h1.title Карта сайта
+    table
+      tbody
+        tr
+          td 
+            a(href="company.html" target="_blank") Данные о компании
+        tr
+          td 
+            a(href="projects.html" target="_blank") Проекты
+          td 
+            a(href="project-page.html" target="_blank") Страница проекта
+        tr
+          td 
+            a(href="personal.html" target="_blank") Личные данные
+        tr
+          td 
+            a(href="safety.html" target="_blank") Безопасность
+        tr
+          td 
+            a(href="help.html" target="_blank") Помощь

@@ -1,0 +1,242 @@
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  &--active {
+    opacity: 1;
+    visibility: visible;
+    transition: transform 0.2s linear, visibility 0s linear, opacity 0.2s linear;
+  }
+  &__overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--bacground-opacity);
+    transition: 0.2s;
+  }
+  &__wrap {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 1096px;
+    background-color: var(--surface);
+    overflow: hidden;
+    transition: background-color 0.2s;
+  }
+  &__close {
+    position: fixed;
+    z-index: 2;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    path {
+      transition: stroke 0.2s;
+      stroke: var(--text-bright);
+    }
+  }
+  &__content {
+    max-height: 95vh;
+    padding: 111px;
+    overflow-y: auto;
+    @include w1023 {
+      padding: 60px 18px;
+    }
+  }
+  &__title {
+    margin-top: 0;
+    margin-bottom: 40px;
+    font-family: 'Noir Pro';
+    font-weight: 600;
+    font-size: 50px;
+    line-height: 68px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    @include w1023 {
+      margin-bottom: 30px;
+      font-size: 35px;
+      line-height: 47px;
+      letter-spacing: 0.01em;
+    }
+    @include w767 {
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+  &__callbacktext {
+    margin-top: -35px;
+    margin-bottom: 51px;
+  }
+  &__block {
+    position: relative;
+    & + & {
+      margin-top: 28px;
+    }
+  }
+  &-block {
+    &__show {
+      position: absolute;
+      right: 0;
+      top: 10px;
+      display: flex;
+      padding: 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      path {
+        fill: var(--text-bright);
+        transition: fill 0.2s;
+      }
+    }
+    &__error {
+      position: absolute;
+      left: 0;
+      bottom: -33px;
+      color: var(--error);
+      @include w767 {
+        font-size: 0;
+      }
+    }
+  }
+  &__hints {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 14px;
+    margin-bottom: 38px;
+    @include w767 {
+      align-items: flex-start;
+      margin-top: 16px;
+      margin-bottom: 18px;
+    }
+  }
+  &__hint {
+    margin-left: 5px;
+    padding: 0;
+    background: none;
+    border: none;
+    color: var(--secondary);
+    cursor: pointer;
+    @include w767 {
+      margin-left: 0;
+    }
+    &[disabled] {
+      color: var(--text-card-caption);
+      cursor: initial;
+    }
+    & + & {
+      margin-top: 14px;
+    }
+  }
+  &__text {
+    margin-bottom: 38px;
+    font-size: 20px;
+    line-height: 27px;
+    @include w767 {
+      font-size: 16px;
+      line-height: 21px;
+    }
+    a {
+      color: var(--secondary);
+    }
+  }
+  &__btns {
+    display: flex;
+    @include w767 {
+      flex-direction: column;
+    }
+  }
+  &__btn {
+    flex: 1;
+    padding: 13px 0;
+    @include w767 {
+      padding: 11px 0;
+    }
+    &:not(:last-child) {
+      margin-right: 15px;
+      @include w767 {
+        margin-right: 0;
+        margin-bottom: 14px;
+      }
+    }
+  }
+  &__subtitle {
+    max-width: 770px;
+    margin: 0 auto;
+    font-family: 'Noir Pro';
+    font-weight: 600;
+    font-size: 35px;
+    line-height: 47px;
+    text-align: center;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    @include w1023 {
+      font-size: 28px;
+      line-height: 39px;
+    }
+    @include w767 {
+      font-size: 20px;
+      line-height: 27px;
+    }
+  }
+  &-lk {
+    &__row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    &__num {
+      margin-right: 24px;
+      font-size: 14px;
+      line-height: 19px;
+      color: var(--text-caption);
+    }
+    &__status {
+      padding: 3px 13px;
+      background: var(--secondary-light);
+      border-radius: 30px;
+      font-size: 14px;
+      line-height: 19px;
+      color: var(--secondary);
+    }
+    &__title {
+      margin-top: 0;
+      margin-bottom: 26px;
+      font-family: 'Noir Pro';
+      font-weight: 600;
+      font-size: 28px;
+      line-height: 39px;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      @include w1023 {
+        margin-bottom: 20px;
+        font-size: 24px;
+        line-height: 32px;
+      }
+      @include w767 {
+        font-size: 20px;
+        line-height: 27px;
+      }
+    }
+    &__btn {
+      margin-top: 26px;
+      padding: 14px 25px;
+      cursor: pointer;
+      @include w1023 {
+        width: 100%;
+      }
+    }
+  }
+}

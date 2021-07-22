@@ -1,0 +1,17 @@
+extends ../template
+
+block variables
+  - var title = 'Безопасность'
+
+block content
+  section.personal.container-lk.margin-section
+    .title-lk Безопасность
+    form.personal__content
+      .personal__title Изменение пароля
+      input(type="text" placeholder="Введите старый пароль*")
+      input(type="text" placeholder="Введите новый пароль*")
+      input(type="text" placeholder="Введите новый пароль повторно*")
+      p Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь с 
+        a(href="#") политикой конфиденциальности
+      button.primary-btn Сохранить 
+        

@@ -1,0 +1,31 @@
+extends ../template
+
+block variables
+  - var title = 'Данные о компании'
+
+block content
+  section.company.container-lk.margin-section
+    .title-lk Данные о компании
+    .company__content 
+      ul.company__col
+        li.company__item.company-item
+          .company-item__title Название
+          .company-item__value ООО “РИВОЛТА”
+        li.company__item.company-item
+          .company-item__title ИНН
+          .company-item__value 7804607944
+        li.company__item.company-item
+          .company-item__title Специализация
+          .company-item__value Магазин подземных фонарей и горелок 
+        li.company__item.company-item
+          .company-item__title Сайт
+          a.company-item__value.company-item__value--link(href="#" target="_blank") levitacia.co
+      form.company__col
+        .company__title Контактное лицо
+        input(type="text" value="Калерия" disabled)
+        input(type="email" value="kalerazubra@gmail.com" disabled)
+        input(type="tel" value="+7 (566) 445-99-91" disabled)
+        button.secondary-btn Изменить
+        .company__btns 
+          button.secondary-btn Отмена 
+          button.primary-btn Изменить 

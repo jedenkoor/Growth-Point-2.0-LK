@@ -1,0 +1,149 @@
+.contacts {
+  &__wrap {
+    @include w1200 {
+      display: grid;
+      grid-template-columns: repeat(2, calc(50% - 10px));
+      grid-gap: 20px;
+    }
+    @include w767 {
+      display: block;
+    }
+  }
+  &__map {
+    height: 504px;
+    margin-bottom: 51px;
+    @include w1200 {
+      height: auto;
+      margin-bottom: 0;
+    }
+    @include w767 {
+      width: 100vw;
+      height: 486px;
+      transform: translateX(-16px);
+    }
+    .ymaps-2-1-78-copyrights-pane,
+    .ymaps-2-1-78-controls__toolbar,
+    .ymaps-2-1-78-controls__bottom {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      border: 0;
+      clip: rect(0 0 0 0);
+    }
+    [class*='ymaps-2'][class*='-ground-pane'] {
+      filter: saturate(0) brightness(0.9);
+    }
+  }
+  &__info {
+    display: flex;
+    padding: 30px 5px;
+    list-style: none;
+    background-color: var(--card-surface);
+    box-shadow: var(--shadow);
+    transition: background-color 0.2s, box-shadow 0.2s;
+    @include w1200 {
+      display: block;
+      padding: 30px 30px 41px;
+    }
+    @include w767 {
+      position: relative;
+      z-index: 2;
+      margin-top: -55px;
+    }
+  }
+  &-info {
+    &__col {
+      flex: 0 0 343px;
+      padding: 0 30px;
+      @include w1200 {
+        padding: 0;
+      }
+      &:not(:last-child) {
+        border-right: 1px solid var(--circle-pale);
+        @include w1200 {
+          margin-bottom: 20px;
+          padding-bottom: 20px;
+          border-right: none;
+          border-bottom: 1px solid var(--circle-pale);
+        }
+      }
+      &:nth-child(2) {
+        flex: 0 0 26.1%;
+      }
+      &:last-child {
+        flex: 1;
+      }
+    }
+    &__title {
+      margin-top: 0;
+      margin-bottom: 14px;
+      font-family: 'Noir Pro';
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 32px;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      @include w1023 {
+        font-size: 20px;
+        line-height: 27px;
+      }
+    }
+    &__socials {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      grid-gap: 12px 30px;
+      padding-left: 0;
+      list-style: none;
+      @include w1200 {
+        grid-template-columns: auto;
+        grid-gap: 10px;
+      }
+    }
+    &__social {
+      flex: 0 0 50%;
+      &:nth-child(1) {
+        order: -2;
+      }
+      &:nth-child(3) {
+        order: -1;
+        @include w1200 {
+          order: 0;
+        }
+      }
+    }
+    &-social {
+      &__link {
+        display: flex;
+        align-items: center;
+        transition: color 0.2s;
+        @include hover {
+          &:hover,
+          &:focus {
+            color: var(--primary);
+            path {
+              stroke: var(--primary);
+            }
+          }
+        }
+        @include active {
+          &:active {
+            color: var(--primary);
+            path {
+              stroke: var(--primary);
+            }
+          }
+        }
+        svg {
+          margin-right: 9px;
+        }
+        path {
+          stroke: var(--text-bright);
+          transition: stroke 0.2s;
+        }
+      }
+    }
+  }
+}

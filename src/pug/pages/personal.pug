@@ -1,0 +1,18 @@
+extends ../template
+
+block variables
+  - var title = 'Личные данные'
+
+block content
+  section.personal.container-lk.margin-section
+    .title-lk Личные данные
+    form.personal__content
+      input(type="text" value="Шестакова" disabled)
+      input(type="text" value="Калерия" disabled)
+      input(type="text" value="Вадимовна" disabled)
+      input(type="email" value="kalerazubra@gmail.com" disabled)
+      input(type="tel" value="+7 (566) 445-99-91" disabled)
+      button.secondary-btn Изменить
+      .personal__btns 
+        button.secondary-btn Отмена 
+        button.primary-btn Сохранить 
