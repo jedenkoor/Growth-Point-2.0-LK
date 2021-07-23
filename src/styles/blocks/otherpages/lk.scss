@@ -414,6 +414,7 @@
     letter-spacing: 0.01em;
     color: var(--secondary);
     cursor: pointer;
+    transition: 0.2s;
     @include w1440 {
       font-size: 16px;
       line-height: 21px;
@@ -421,7 +422,10 @@
     @include hover {
       &:hover,
       &:focus {
-        text-decoration: underline;
+        color: var(--text-bright);
+        path {
+          stroke: var(--text-bright);
+        }
       }
     }
     @include active {
@@ -431,6 +435,9 @@
     }
     svg {
       margin-left: 8px;
+      path {
+        transition: 0.2s;
+      }
     }
   }
   &__list {
@@ -684,8 +691,8 @@
     transition: background-color 0.2s;
     @include w1440 {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-gap: 20px;
+      grid-template-columns: auto 1fr;
+      grid-gap: 0;
       order: 1;
       padding: 18px 32px;
     }
@@ -725,6 +732,17 @@
         @include w1440 {
           padding-bottom: 0;
         }
+      }
+      &:nth-child(2n) {
+        @include w1440 {
+          margin-left: 20px;
+          padding-left: 20px;
+          border-left: 1px solid var(--circle-pale);
+        }
+      }
+      &:nth-child(1),
+      &:nth-child(2) {
+        padding-bottom: 14px;
       }
       &:not(:last-child) {
         border-bottom: 1px solid var(--circle-pale);

@@ -202,12 +202,26 @@
         @include hover {
           &:hover,
           &:focus {
-            text-decoration: underline;
+            svg:last-child {
+              rect {
+                fill: var(--secondary);
+              }
+              path {
+                stroke: var(--surface-menu);
+              }
+            }
           }
         }
         @include active {
           &:active {
-            text-decoration: underline;
+            svg:last-child {
+              rect {
+                fill: var(--secondary);
+              }
+              path {
+                stroke: var(--surface-menu);
+              }
+            }
           }
         }
         svg {
